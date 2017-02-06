@@ -1,0 +1,12 @@
+FreeBSD:
+  config_dir: /usr/local/etc/dovecot
+  service: dovecot
+  packages:
+    - dovecot
+
+Debian:
+  config_dir: /etc/dovecot
+  service: dovecot
+  packages:
+    - dovecot-core
+    - dovecot-imapd

@@ -1,0 +1,16 @@
+{% import_yaml 'dovecot/defaults.yaml' as defaults %}
+{% import_yaml 'dovecot/osmap.yaml' as osmap %}
+
+{# get the settings for the os_family grain #}
+{% set osfam = salt['grains.filter_by'](osmap) or {} %}
+
+{# merge the os family/codename specific data over the defaults #}
+{% do defaults.dovecot.update(osfam) %}
+
+{# merge the pillar:lookup dict into the defaults/os specific dict #}
+{% set lookup = salt['pillar.get']('dovecot:lookup',
+                                   default=defaults.dovecot,
+                                   merge=True) %}
+
+{# merge the actual dovecot pillar into the above combined dict #}
+{% set dovecot = salt['pillar.get']('dovecot', default=lookup, merge=True) %}
