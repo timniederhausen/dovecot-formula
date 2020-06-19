@@ -21,6 +21,7 @@ FreeBSD:
   root_group: wheel
   packages:
     - dovecot
+    - dovecot-pigeonhole
 
 Debian:
   config:

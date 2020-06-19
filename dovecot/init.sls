@@ -72,7 +72,7 @@ dovecot_dict_{{ name }}:
       - pkg: dovecot_packages
 {% endfor %}
 
-{% for name, values in dovecot.ssl.keys.items() %}
+{% for name, values in dovecot.ssl.privkeys.items() %}
 {{ dovecot.ssl.key_root }}/dovecot-{{ name }}.key:
   file.managed:
     - user: root

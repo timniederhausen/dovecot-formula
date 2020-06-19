@@ -8,4 +8,4 @@ dovecot:
     confd_ext_entries: {}
   ssl:
     certs: {}
-    keys: {}
+    privkeys: {}
